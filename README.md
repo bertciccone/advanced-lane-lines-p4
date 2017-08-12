@@ -45,7 +45,7 @@ To demonstrate this step, I will describe how I apply the distortion correction 
 
 I first read the images using OpenCV and converted from BGR color to RGB. As above, I used `cv2.undistort()` to undistort the image, using the camera calibration matrix and distortion parameters computed from the chessboard test images.
 
-![Test Image]["./output_images/test_images_distortion_corrected.jpg"]
+![Test Image][./output_images/test_images_distortion_corrected.jpg]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -57,11 +57,11 @@ Then, I calculated the Sobel gradients in the x and y directions to apply thresh
 
 Finally, the three binary matrixes were combined to produce a resulting thresholded binary image like this:
 
-![Thresholded Binary Image]("./output_images/test_image_thresholded_binary.jpg")
+![Thresholded Binary Image](./output_images/test_image_thresholded_binary.jpg)
 
 In addition, I applied a region of interest using the function `region_of_interest()` in the cell entitled "Region of Interest." This masked the pixels outside of my identified polygon and produced this image:
 
-![Region of Interest]("./output_images/test_image_region_of_interest.png")
+![Region of Interest](./output_images/test_image_region_of_interest.png)
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -97,7 +97,7 @@ Destination points
 
 I verified that my perspective transform was working as expected on a straight lane image by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image. Then, I warped a curved lane image as well:
 
-![Warped Images]["./output_images/test_images_warped.png"]
+![Warped Images][./output_images/test_images_warped.png]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
@@ -105,7 +105,7 @@ To identify lane lines I used two functions, one to identify the lines in the fi
 
 To find lines, I started with a histogram of the x coordinate values in the thresholded binary pixels, as illustrated in the cell entitled "Identifying Lane Lines: Basic Histogram of Warped Image":
 
-![Histogram]("./output_images/histogram.png")
+![Histogram](./output_images/histogram.png)
 
 I use such a histogram in the `find_lane_lines()` function in the cell entitled "Identifying Lane Lines: Find Lane Pixels with Sliding Windows." This function starts searching for lane lines at the x coordinates that have the most pixels as indicated in the histogram. It uses sliding windows along the x direction to find the greatest number of pixels and, when they are found, performs the same process in the next level up in the image, until the entire set of right and left line pixels are found.
 
@@ -149,11 +149,11 @@ center_curverad = np.mean( np.array([left_curverad, right_curverad]), axis=0 )
 
 Here is an example of the result on a test image from `find_lane_lines()` in the cell "Identifying Lane Lines: Find Lane Pixels with Sliding Windows":
 
-![Lane Lines from Sliding Windows]("./output_images/test_image_sliding_windows.png")
+![Lane Lines from Sliding Windows](./output_images/test_image_sliding_windows.png)
 
 Here is an example of the result on a test image from `extend_lane_lines()` in the cell "Identifying Lane Lines: Find Lane Pixels Using Previous Pixel Positions":
 
-![Lane Lines from Previous Positions]("./output_images/test_image_previous_positions.png")
+![Lane Lines from Previous Positions](./output_images/test_image_previous_positions.png)
 
 ---
 
