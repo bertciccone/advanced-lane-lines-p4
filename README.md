@@ -57,7 +57,7 @@ Then, I calculated the Sobel gradients in the x and y directions to apply thresh
 
 Finally, the three binary matrixes were combined to produce a resulting thresholded binary image like this:
 
-![Thresholded Binary Image](./output_images/test_image_thresholded_binary.jpg)
+![Thresholded Binary Image](./output_images/test_image_thresholded_binary.png)
 
 In addition, I applied a region of interest using the function `region_of_interest()` in the cell entitled "Region of Interest." This masked the pixels outside of my identified polygon and produced this image:
 
